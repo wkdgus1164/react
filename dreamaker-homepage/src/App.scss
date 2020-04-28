@@ -1,0 +1,75 @@
+// default charset
+@charset 'utf-8';
+
+// open color lib
+@import "~open-color/open-color";
+
+// include media lib
+@import "~include-media/dist/include-media";
+
+// reset css
+@import "./Utils/Reset.scss";
+
+// text align css
+@import "./Utils/TextAlign.scss";
+
+// fonts css
+@import "./Utils/Fonts.scss";
+
+// animation css
+@import "./Utils/Animation.scss";
+
+// margin css
+@import "./Utils/Margins.scss";
+
+// responsive css
+@import "./Utils/Responsive.scss";
+
+// custom font
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+
+// basic colors
+$color-blue: $oc-blue-5;
+$color-sky-blue: $oc-blue-2;
+$color-white: white;
+$hover-color: $oc-gray-3;
+
+// screen breakpoints
+$breakpoints: (
+  small: 376px,
+  medium: 768px,
+  large: 1024px,
+  huge: 1200px,
+);
+
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  font-family: "NanumSquare", sans-serif;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 1.125rem;
+  user-select: none;
+}
+
+a {
+  color: white;
+
+  &:hover {
+    color: $oc-gray-4;
+  }
+}

@@ -1,0 +1,12 @@
+@import "../../App.scss";
+
+.default-textarea {
+    width: 70%;
+    padding: 15px;
+    background-color: $oc-gray-1;
+    color: $color-white;
+    border: 1px solid $oc-gray-9;
+    color: $oc-gray-9;
+    text-decoration-color: black;
+    margin-left: -200px;
+}

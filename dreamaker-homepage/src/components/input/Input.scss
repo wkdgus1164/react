@@ -1,0 +1,56 @@
+@import "../../App.scss";
+
+.default-input {
+    width: 70%;
+    padding: 15px;
+    height: 15px;
+    background-color: $oc-gray-1;
+    color: $color-white;
+    border: 1px solid $oc-gray-9;
+    color: $oc-gray-9;
+    border-radius: 0px;
+    text-decoration-color: black;
+    margin-left: -200px;
+}
+
+@media screen and (max-width: 1650px) {
+    .default-input {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 1450px) {
+    .default-input {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .default-input {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .default-input {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .default-input {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .default-input {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .default-input {
+        width: 35%;
+    }
+}

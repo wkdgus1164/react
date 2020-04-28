@@ -1,0 +1,10 @@
+@import "../../App.scss";
+
+.wrapper-container-first {
+    width: 90%;
+    padding-left: 10%;
+    height: 100vh;
+    // background-size: 100% 100%;
+    background-image: url(../../images/main-image.jpg);
+    background-position: center center;
+}

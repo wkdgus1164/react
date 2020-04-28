@@ -1,0 +1,18 @@
+@import "../../App.scss";
+
+.wrapper-container-footer {
+    padding-left: 10%;
+    width: 100%;
+    background-color: $oc-gray-9;
+    height: 180px;
+
+    & .container-left {
+        float: left;
+        padding: 15px;
+    }
+
+    & .container-right {
+        float: right;
+        padding-right: 20%;
+    }
+}

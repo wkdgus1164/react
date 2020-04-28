@@ -1,0 +1,47 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux'
+import rootReducer, { rootSaga } from './modules';
+import { createStore, applyMiddleware } from 'redux';
+import myLogger from './middlewares/myLogger';
+import { composeWithDevTools } from 'redux-devtools-extension'
+import ReduxThunk from 'redux-thunk'
+import { BrowserRouter, Route } from 'react-router-dom'
+import { Router } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
+import createSagaMiddleware from 'redux-saga'
+
+const customHistory = createBrowserHistory()
+const sagaMiddleware = createSagaMiddleware({ context: { history: customHistory } })
+
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(
+    applyMiddleware(
+      ReduxThunk.withExtraArgument({ history: customHistory }),
+      sagaMiddleware,
+      myLogger
+    )
+  )
+)
+
+sagaMiddleware.run(rootSaga)
+
+ReactDOM.render(
+  <Router history={customHistory}>
+    <BrowserRouter>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </BrowserRouter>
+  </Router>,
+  document.getElementById('root')
+);
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

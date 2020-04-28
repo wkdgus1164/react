@@ -1,0 +1,27 @@
+@import "../../App.scss";
+
+.button-black {
+    background-color: transparent;
+    color: $color-white;
+    border: 1px solid $color-white;
+    border-radius: 30px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $oc-gray-4;
+        color: $oc-gray-9;
+        border: 1px solid $color-white;
+        border-radius: 30px;
+        cursor: pointer;
+        animation-name: fade-in-1s;
+    }
+}
+
+.button-white {
+    padding: 10px;
+    background-color: $oc-gray-5;
+    color: $color-white;
+    border: 1px solid $oc-gray-9;
+    border-radius: 30px;
+    cursor: pointer;
+}

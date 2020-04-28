@@ -1,0 +1,15 @@
+@import "../../App.scss";
+
+.mailing-form {
+    background-color: $oc-gray-3;
+    padding: 4%;
+    width: 100%;
+    text-align: center;
+
+    & .mailing-title {
+        width: 200px;
+        height: 30px;
+        text-align: right;
+        float: left;
+    }
+}

@@ -1,0 +1,63 @@
+@import "../../App.scss";
+
+.horizontal-list-background {
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+    background-color: $oc-gray-7;
+    float: right;
+    height: 55px;
+}
+
+.default-li {
+    line-height: 50px;
+    text-decoration: none;
+    margin-left: 100px;
+
+    &:hover {
+        color: $oc-gray-4;
+        border-bottom: solid 3px $oc-gray-4;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+
+    & + & {
+        margin-left: 40px;
+    }
+}
+
+.bottom-border {
+    width: 10px;
+    position: absolute;
+    height: 10px;
+    background-color: red;
+    transition-property: width;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+.menu {
+    display: inline-block;
+    display: none;
+    vertical-align: middle;
+    width: 36px;
+    height: 36px;
+    background-size: 10% 10% 10% 10%;
+    background-image: url(../../images/menu.svg);
+    border: none;
+    color: transparent;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 700px) {
+    .default-li {
+        display: none;
+    }
+
+    .menu {
+        display: inline-block;
+        float: right;
+        margin: 10px;
+    }
+}

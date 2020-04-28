@@ -1,0 +1,88 @@
+// Desktop
+@media screen and (max-width: 700px) {
+    .large-bold-font {
+        padding: 10px;
+        font-size: 3.5rem;
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    .medium-bold-font {
+        padding: 10px;
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
+    .medium-small-bold-font {
+        padding: 10px;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .small-bold-font {
+        padding: 10px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .small-tiny-bold-font {
+        padding: 10px;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .tiny-bold-font {
+        padding: 10px;
+        font-size: 0.875rem;
+        font-weight: bold;
+    }
+
+    .mini-bold-font {
+        padding: 10px;
+        font-size: 0.75rem;
+        font-weight: bold;
+    }
+
+    .large-regular-font {
+        padding: 10px;
+        font-size: 3.5rem;
+        font-weight: normal;
+    }
+
+    .medium-regular-font {
+        padding: 10px;
+        font-size: 3rem;
+        font-weight: normal;
+    }
+
+    .medium-small-regular-font {
+        padding: 10px;
+        font-size: 2rem;
+        font-weight: normal;
+    }
+
+    .small-regular-font {
+        padding: 10px;
+        font-size: 1.5rem;
+        font-weight: normal;
+    }
+
+    .small-tiny-regular-font {
+        padding: 10px;
+        font-size: 1rem;
+        font-weight: normal;
+    }
+
+    .tiny-regular-font {
+        line-height: 1.5;
+        padding: 10px;
+        font-size: 0.5rem;
+        font-weight: normal;
+    }
+
+    .mini-regular-font {
+        padding: 10px;
+        font-size: 0.25rem;
+        font-weight: normal;
+    }
+}

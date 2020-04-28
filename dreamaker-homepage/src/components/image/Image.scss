@@ -1,0 +1,30 @@
+@import "../../App.scss";
+
+.default-image {
+    width: 170px;
+    height: 30px;
+    margin-left: 10%;
+    vertical-align: middle;
+}
+
+.member-image {
+    width: 395px;
+}
+
+@media screen and (max-width: 1699px) {
+    .member-image {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .member-image {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .member-image {
+        width: 200px;
+    }
+}
