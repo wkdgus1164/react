@@ -1,14 +1,15 @@
 import React from 'react'
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation'
+import { createBottomTabNavigator, createAppContainer, createStackNavigator } from 'react-navigation'
 import MoviesScreen from '../screens/Movies'
 import TVScreen from '../screens/TV'
 import SearchScreen from '../screens/Search'
 import TabBarIcon from './../components/TabBarIcon';
 import { Platform } from 'react-native'
+import { createStack } from './config'
 
 const TabNavigation = createBottomTabNavigator({
     Movie: {
-        screen: MoviesScreen,
+        screen: createStack(MoviesScreen, "Movies"),
         navigationOptions: {
             tabBarIcon: ({ focused }) => (
                 <TabBarIcon focused={focused} name={Platform.OS === "ios" ? "ios-film" : "md-film"} />
@@ -16,7 +17,7 @@ const TabNavigation = createBottomTabNavigator({
         }
     },
     TV: {
-        screen: TVScreen,
+        screen: createStack(TVScreen, "TV"),
         navigationOptions: {
             tabBarIcon: ({ focused }) => (
                 <TabBarIcon focused={focused} name={Platform.OS === "ios" ? "ios-tv" : "md-tv"} />
@@ -24,7 +25,7 @@ const TabNavigation = createBottomTabNavigator({
         }
     },
     Search: {
-        screen: SearchScreen,
+        screen: createStack(SearchScreen, "Search"),
         navigationOptions: {
             tabBarIcon: ({ focused }) => (
                 <TabBarIcon focused={focused} name={Platform.OS === "ios" ? "ios-search" : "md-search"} />
