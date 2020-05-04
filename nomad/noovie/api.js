@@ -41,4 +41,4 @@ export const tvApi = {
     show: id => getAnything(`/tv/${id}`)
 }
 
-export const apiImage = path => `https://image.tmdb.org/t/p/w500${path}`
+export const apiImage = path => path ? `https://image.tmdb.org/t/p/w500${path}` : "https://cdn.pixabay.com/photo/2017/05/26/07/21/man-2345397__340.jpg"

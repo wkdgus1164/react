@@ -1,9 +1,10 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
-import { ScrollView, ActivityIndicator } from 'react-native'
+import { ScrollView, ActivityIndicator, RefreshControl } from 'react-native'
 
 const ScrollContainer = ({ loading, children }) => (
     <ScrollView
+        refreshControl={<RefreshControl tintColor={"white"} />}
         style={{ backgroundColor: 'black' }}
         contentContainerStyle={{ justifyContent: loading ? "center" : "flex-start" }}>
         {loading ? <ActivityIndicator color="white" size="small" /> : children}
