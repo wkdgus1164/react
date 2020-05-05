@@ -23,10 +23,10 @@ export default ({ navigation, route }) => {
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused }) => {
                     let iconName = Platform.OS === "ios" ? "ios-" : "md-"
-                    if (route.name === "Movies") iconName += "film"
+                    if (route.name === "영화") iconName += "film"
                     else if (route.name === "TV") iconName += "tv"
-                    else if (route.name === "Search") iconName += "search"
-                    else if (route.name === "Discovery") iconName += "heart"
+                    else if (route.name === "검색") iconName += "search"
+                    else if (route.name === "탐색") iconName += "heart"
                     return <Ionicons name={iconName} color={focused ? "white" : "grey"} size={30} />
                 }
             })}
@@ -37,10 +37,10 @@ export default ({ navigation, route }) => {
                     borderTopColor: 'black'
                 }
             }}>
-            <Tabs.Screen name="Movies" component={Movies} />
+            <Tabs.Screen name="영화" component={Movies} />
             <Tabs.Screen name="TV" component={Tv} />
-            <Tabs.Screen name="Search" component={Search} />
-            <Tabs.Screen name="Discovery" component={Favs} />
+            <Tabs.Screen name="검색" component={Search} />
+            <Tabs.Screen name="탐색" component={Favs} />
         </Tabs.Navigator>
     )
 }

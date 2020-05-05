@@ -25,8 +25,8 @@ const UpcomingContainer = styled.View`
     margin-top: 20px;
 `
 
-export default ({ loading, nowPlaying, popular, upcoming }) => (
-    <ScrollContainer loading={loading}>
+export default ({ refreshFn, loading, nowPlaying, popular, upcoming }) => (
+    <ScrollContainer refreshFn={refreshFn} loading={loading}>
         <>
             <SliderContainer>
                 <Swiper controlsEnabled={false} loop timeout={3}>
@@ -43,7 +43,7 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
                 </Swiper>
             </SliderContainer>
             <Container>
-                <HorizontalSlider title={"Popular Movies"}>
+                <HorizontalSlider title={"인기 영화"}>
                     {popular.map(movie => (
                         <Vertical
                             id={movie.id}
@@ -53,7 +53,7 @@ export default ({ loading, nowPlaying, popular, upcoming }) => (
                             votes={movie.vote_average} />
                     ))}
                 </HorizontalSlider>
-                <List title="Coming Soon">
+                <List title="개봉을 앞둔 영화">
                     {upcoming.map(movie => (
                         <Horizontal
                             key={movie.id}

@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 import Input from './Input'
 import HorizontalSlider from './../../components/HorizontalSlider'
 import Vertical from './../../components/Vertical'
-import ScrollContainer from './../../components/ScrollContainer';
+import ScrollContainer from './../../components/ScrollContainer'
 
 const Container = styled.ScrollView`
     background-color: black;
@@ -12,14 +12,17 @@ const Container = styled.ScrollView`
 const Text = styled.Text``
 
 export default ({ movies, shows, keyword, onChange, onSubmit }) => (
-    <ScrollContainer contentContainerStyle={{ paddingTop: 10 }}>
+    <ScrollContainer
+        refreshFn={onSubmit}
+        loading={false}
+        contentContainerStyle={{ paddingTop: 10 }}>
         <Input
-            placeholder={"Write a keyword"}
+            placeholder={"검색어를 입력하세요."}
             value={keyword}
             onChange={onChange}
             onSubmit={onSubmit} />
         {movies.length !== 0 && (
-            <HorizontalSlider title={"Movie results"}>
+            <HorizontalSlider title={"영화 검색 결과"}>
                 {movies.map(movie => <Vertical
                     key={movie.id}
                     id={movie.id}
@@ -30,7 +33,7 @@ export default ({ movies, shows, keyword, onChange, onSubmit }) => (
             </HorizontalSlider>
         )}
         {shows.length !== 0 && (
-            <HorizontalSlider title={"TV results"}>
+            <HorizontalSlider title={"TV 검색 결과"}>
                 {shows.map(show => <Vertical
                     key={show.id}
                     id={show.id}

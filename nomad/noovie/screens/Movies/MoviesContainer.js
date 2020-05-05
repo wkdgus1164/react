@@ -3,6 +3,7 @@ import { movieApi } from '../../api'
 import MoviesPresenter from './MoviesPressenter'
 
 export default () => {
+    const [refreshing, setRefreshing] = useState(false)
     const [movies, setMovies] = useState({
         loading: true,
         nowPlaying: [],
@@ -32,5 +33,5 @@ export default () => {
         getData()
     }, [])
 
-    return <MoviesPresenter {...movies} />
+    return <MoviesPresenter refreshFn={getData} {...movies} />
 }

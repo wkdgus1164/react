@@ -8,11 +8,12 @@ import Horizontal from '../../components/Horizontal';
 
 const Container = styled.View``
 
-export default ({ loading, popular, topRated, today }) =>
-    <ScrollContainer loading={loading}>
+export default ({ refreshFn, loading, popular, topRated, today }) =>
+    <ScrollContainer refreshFn={refreshFn} loading={loading}>
         <HorizontalSlider title="Popular Shows">
             {popular.map(show =>
                 <Vertical
+                    isTv={true}
                     id={show.id}
                     key={show.id}
                     poster={show.backdrop_path}
@@ -22,6 +23,7 @@ export default ({ loading, popular, topRated, today }) =>
         <HorizontalSlider title="Top Rated">
             {topRated.map(show =>
                 <Vertical
+                    isTv={true}
                     id={show.id}
                     key={show.id}
                     poster={show.backdrop_path}
@@ -31,6 +33,7 @@ export default ({ loading, popular, topRated, today }) =>
         <List title="Airing Today">
             {today.map(show =>
                 <Horizontal
+                    isTv={true}
                     key={show.id}
                     id={show.id}
                     title={show.name}
