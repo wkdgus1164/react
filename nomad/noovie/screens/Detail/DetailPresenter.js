@@ -1,11 +1,12 @@
 import React from 'react'
-import { Text, View, Dimensions, ActivityIndicator } from 'react-native'
+import { Dimensions, ActivityIndicator } from 'react-native'
 import styled from 'styled-components/native'
 import ScrollContainer from './../../components/ScrollContainer'
 import { apiImage } from '../../api'
 import Poster from '../../components/Poster'
 import Votes from '../../components/Votes'
 import { formatDate } from '../../utils'
+import Link from '../../components/Detail/Link'
 
 const BG = styled.Image`
     width: 100%;
@@ -57,48 +58,91 @@ const DataValue = styled.Text`
   margin-bottom: 10px;
 `
 
-export default ({ result, loading }) => (
+export default ({ openBrowser, result, loading }) => (
     <ScrollContainer loading={false}>
         <Header>
-            <BG source={{ uri: apiImage(result.backgroundImage, "") }} />
+            {result.backgroundImage && <BG source={{ uri: apiImage(result.backgroundImage, "") }} />}
             <Container>
                 <Poster url={result.poster} />
                 <Info>
-                    <Title>{result.title}</Title>
-                    {result.votes && <Votes votes={result.otes} />}
+                    {result.title && <Title>{result.title}</Title>}
+                    {result.votes && <Votes votes={result.votes} />}
                 </Info>
             </Container>
         </Header>
         <Data>
-            {result.overview && (
+            {result.overview ? (
                 <>
                     <DataName>개요</DataName>
                     <DataValue>{result.overview}</DataValue>
                 </>
-            )}
-            {loading && <ActivityIndicator styles={{ marginTop: 30 }} />}
-            {result.spoken_languages && <>
-                <DataName>언어</DataName>
-                <DataValue>{result.spoken_languages.map(l => ` ${l.name} \n `)}</DataValue>
-            </>
-            }
-            {result.release_date && <>
-                <DataName>개봉일</DataName>
-                <DataValue>{formatDate(result.release_date)}</DataValue>
-            </>
-            }
-            {result.status && (
+            ) : null}
+            {loading ? (<ActivityIndicator styles={{ marginTop: 30 }} />) : null}
+            {result.spoken_languages ? (
+                <>
+                    <DataName>언어</DataName>
+                    <DataValue>{result.spoken_languages.map(l => `${l.name}\n`)}</DataValue>
+                </>
+            ) : null}
+            {result.release_date ? (
+                <>
+                    <DataName>개봉일</DataName>
+                    <DataValue>{formatDate(result.release_date)}</DataValue>
+                </>
+            ) : null}
+            {result.status ? (
                 <>
                     <DataName>개봉여부</DataName>
-                    <DataValue>{result.status === "Released" ? "개봉" : "미개봉"}</DataValue>
+                    <DataValue>{result.status}</DataValue>
                 </>
-            )}
-            {result.status && (
+            ) : null}
+            {result.runtime ? (
                 <>
                     <DataName>재생시간</DataName>
                     <DataValue>{result.runtime}분</DataValue>
                 </>
-            )}
+            ) : null}
+            {result.first_air_date ? (
+                <>
+                    <DataName>첫 방송일자</DataName>
+                    <DataValue>{formatDate(result.first_air_date)}</DataValue>
+                </>
+            ) : null}
+            {result.genres ? (
+                <>
+                    <DataName>장르</DataName>
+                    <DataValue>{result.genres.map(g => `${g.name}\n`)}</DataValue>
+                </>
+            ) : null}
+            {result.number_of_episodes ? (
+                <>
+                    <DataName>회차</DataName>
+                    <DataValue>{result.number_of_seasons} / {result.number_of_episodes}회</DataValue>
+                </>
+            ) : null}
+            {result.imdb_id ? (
+                <>
+                    <DataName>링크</DataName>
+                    <Link
+                        text={"IMDB Page"}
+                        icon={"imdb"}
+                        onPress={() => openBrowser(`https://www.imdb.com/title/${result.imdb_id}`)}
+                    />
+                </>
+            ) : null}
+            {result.videos.results.length > 0 ? (
+                <>
+                    <DataName>비디오</DataName>
+                    {result.videos.results.map(video => (
+                        <Link
+                            text={video.name}
+                            key={video.id}
+                            icon="youtube-play"
+                            onPress={() => openBrowser(`https://www.youtube.com/watch?v=${video.key}`)}
+                        />
+                    ))}
+                </>
+            ) : null}
         </Data>
     </ScrollContainer>
 )
