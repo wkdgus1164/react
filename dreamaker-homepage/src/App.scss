@@ -7,9 +7,6 @@
 // include media lib
 @import "~include-media/dist/include-media";
 
-// reset css
-@import "./Utils/Reset.scss";
-
 // text align css
 @import "./Utils/TextAlign.scss";
 
@@ -25,8 +22,8 @@
 // responsive css
 @import "./Utils/Responsive.scss";
 
-// custom font
-@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
+// reset css
+@import "./Utils/Reset.scss";
 
 // basic colors
 $color-blue: $oc-blue-5;
